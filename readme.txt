@@ -7,7 +7,7 @@ Tested up to: 3.5
 Stable tag: 0.1
 License: GPLv2 or later
 
-Customize WP-admin lets you easily remove and menu or submenu from the admin sidebar, change the footer at wp-admin, and change the image and link of Wordpress on wp-login.
+Customize WP-admin lets you easily remove any menu or submenu from the admin sidebar, change the footer at wp-admin, and change the image and link of Wordpress on wp-login.
 
 == Description ==
 
