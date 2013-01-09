@@ -4,24 +4,24 @@ Plugin Name: Customize WP-admin
 Plugin URI: http://www.arteck.mx/project/customize-wp-admin/
 Description: Customize WP-admin lets you easily remove any menu or submenu from the admin sidebar, change the footer at wp-admin, and change the image and link of Wordpress on wp-login.
 Author: Arteck
-Version: 0.1
+Version: 0.2
 Author URI: http://www.arteck.mx
 
-    Copyright 2012  Arteck  (email : adrian.rangel@arteck.mx)
+Copyright 2012  Arteck  (email : adrian.rangel@arteck.mx)
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 	register_activation_hook(__FILE__, 'add_defaults_fn');
@@ -44,21 +44,41 @@ Author URI: http://www.arteck.mx
 	}
 	
 	function cwa_create_menu() {
-		//create new top-level menu
-		add_menu_page('Customize wp-admin', __('CWA Settings','customize-wp-admin'), 'administrator', __FILE__, 'cwa_settings_page',plugins_url('/images/icon.png', __FILE__));
-		
 		//call register settings function
 		add_action( 'admin_init', 'cwa_register_mysettings' );
+		$tmp = get_option('cwa_options');
+		if ($tmp['change_plugin_location']=='on' && $tmp['remove_settings']!='on'){
+			//sub-level menu
+			add_submenu_page( 'options-general.php', 'Customize WP-Admin', __('CWA Settings','customize-wp-admin'), 'administrator', __FILE__, 'cwa_settings_page');
+		}else{
+			if ($tmp['change_plugin_location']=='on' && $tmp['remove_settings']=='on'){
+				add_action('admin_notices', 'cwa_error_change_location');
+			}
+			//create new top-level menu
+			add_menu_page('Customize WP-Admin', __('CWA Settings','customize-wp-admin'), 'administrator', __FILE__, 'cwa_settings_page',plugins_url('/images/icon.png', __FILE__));
+		}
 	}
+	/* Conditionally display notice */
+	function cwa_error_change_location() {
+    	/* Check that the user hasn't already clicked to ignore the message */
+    	if ( ! get_user_meta( get_current_user_id(), '_cwa_ignore_change_error', true ) ) {
+     	   echo '<div class="error"><p> ';
+     	   _e( "Make sure the Remove Settings option is not enabled, before moving CWA Settings to Settings sub-menu.", 'customize-wp-admin' );
+     	   echo '</p></div>';
+    	}
+	}
+	
+
 	
 	function cwa_register_mysettings() {
 		register_setting('cwa_options', 'cwa_options', 'cwa_options_validate' );
 		add_settings_section('main_section', __('Main Settings','customize-wp-admin'), 'cwa_section_text_fn', __FILE__);
 		add_settings_field('link_login', __('Link Login Page','customize-wp-admin'), 'cwa_setting_llp_fn', __FILE__, 'main_section');
 		add_settings_field('upload_image', __('Image Login Page','customize-wp-admin'), 'cwa_setting_ilp_fn', __FILE__, 'main_section');
-		add_settings_field('wp_footer', __('Footer Of Your WP Administration','customize-wp-admin'), 'cwa_setting_fwpa_fn', __FILE__, 'main_section');
-		add_settings_field('remove_adminbarback', __('Remove Admin-Bar from backend','customize-wp-admin'), 'cwa_setting_radminbarback_fn', __FILE__, 'main_section');
+		add_settings_field('wp_footer', __('Footer Of Your WP Dashboard','customize-wp-admin'), 'cwa_setting_fwpa_fn', __FILE__, 'main_section');
+		//add_settings_field('remove_adminbarback', __('Remove Admin-Bar from backend','customize-wp-admin'), 'cwa_setting_radminbarback_fn', __FILE__, 'main_section');
 		add_settings_field('remove_adminbarfront', __('Remove Admin-Bar from frontend','customize-wp-admin'), 'cwa_setting_radminbarfront_fn', __FILE__, 'main_section');
+		add_settings_field('change_plugin_location', __('Move CWA Settings from sidebar to Settings','customize-wp-admin'), 'cwa_setting_changepl_fn', __FILE__, 'main_section');
 
 		add_settings_section('side_section', __('Wordpress Sidebar','customize-wp-admin'), 'cwa_section_sbtitle_fn', __FILE__);
 		add_settings_field('remove_dashboard', __('Remove Dashboard','customize-wp-admin'), 'cwa_setting_rdashbaord_fn', __FILE__, 'side_section');
@@ -101,10 +121,14 @@ Author URI: http://www.arteck.mx
 			add_settings_field('remove_stpermalinks', __('<span style="margin-left: 15px">> Remove Permalinks</span>','customize-wp-admin'), 'cwa_setting_rstpermalinks_fn', __FILE__, 'side_section');		
 		
 		add_settings_section('dashboard_section', __('Wordpress Dashboard Widgets','customize-wp-admin'), 'cwa_section_wpwtitle_fn', __FILE__);
-		add_settings_field('remove_dtoday', __('Remove Today Widget','customize-wp-admin'), 'cwa_setting_rdtoday_fn', __FILE__, 'dashboard_section');
-		add_settings_field('remove_dlcomments', __('Remove Last Comments','customize-wp-admin'), 'cwa_setting_rdlcomments_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_dtoday', __('Remove Right Now','customize-wp-admin'), 'cwa_setting_rdtoday_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_dlcomments', __('Remove Recent Comments','customize-wp-admin'), 'cwa_setting_rdlcomments_fn', __FILE__, 'dashboard_section');
 		add_settings_field('remove_dilinks', __('Remove Incoming Links','customize-wp-admin'), 'cwa_setting_rdilinks_fn', __FILE__, 'dashboard_section');
 		add_settings_field('remove_dplugins', __('Remove Plugins','customize-wp-admin'), 'cwa_setting_rdplugins_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_dquickp', __('Remove QuickPress','customize-wp-admin'), 'cwa_setting_rdquickp_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_drecentd', __('Remove Recent Drafts','customize-wp-admin'), 'cwa_setting_rdrecentd_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_dwpblog', __('Remove Wordpress Blog','customize-wp-admin'), 'cwa_setting_rdwpblog_fn', __FILE__, 'dashboard_section');
+		add_settings_field('remove_dowpnews', __('Remove Other Wordpress News','customize-wp-admin'), 'cwa_setting_rdowpnews_fn', __FILE__, 'dashboard_section');
 		
 		add_settings_section('restore_section', __('Restore to defaults','customize-wp-admin'), 'cwa_section_rstitle_fn', __FILE__);
 		add_settings_field('plugin_chk1', __('Restore Defaults Upon Reactivation?','customize-wp-admin'), 'cwa_setting_chk1_fn', __FILE__, 'restore_section');
@@ -121,22 +145,27 @@ Author URI: http://www.arteck.mx
 	function cwa_setting_ilp_fn() {
 		$options = get_option('cwa_options');
 		echo "<input id='upload_image' name='cwa_options[upload_image]' size='40' type='text' value='{$options['upload_image']}' />";
-		echo "<input class='button' id='upload_image_button' type='button' value='Upload Image' />";
+		echo "<input class='button' id='upload_image_button' type='button' value='". __('Upload Image','customize-wp-admin') ."' />";
 	}
 	function cwa_setting_fwpa_fn() {
 		$options = get_option('cwa_options');
 		echo "<input id='wp_footer' name='cwa_options[wp_footer]' size='40' type='text' value='{$options['wp_footer']}' />";
 	}
 	
-	function cwa_setting_radminbarback_fn(){
+	/*function cwa_setting_radminbarback_fn(){
 		$options = get_option('cwa_options');
 		if($options['remove_adminbarback']) { $checked = ' checked="checked" '; }
 		echo "<input ".$checked." id='remove_adminbarback' name='cwa_options[remove_adminbarback]' type='checkbox' />";
-	}
+	}*/
 	function cwa_setting_radminbarfront_fn(){
 		$options = get_option('cwa_options');
 		if($options['remove_adminbarfront']) { $checked = ' checked="checked" '; }
 		echo "<input ".$checked." id='remove_adminbarfront' name='cwa_options[remove_adminbarfront]' type='checkbox' />";
+	}
+	function cwa_setting_changepl_fn(){
+		$options = get_option('cwa_options');
+		if($options['change_plugin_location']) { $checked = ' checked="checked" '; }
+		echo "<input ".$checked." id='change_plugin_location' name='cwa_options[change_plugin_location]' type='checkbox' />";
 	}
 	
 	function cwa_section_sbtitle_fn(){
@@ -222,6 +251,26 @@ Author URI: http://www.arteck.mx
 		if($options['remove_dplugins']) { $checked = ' checked="checked" '; }
 		echo "<input ".$checked." id='remove_dplugins' name='cwa_options[remove_dplugins]' type='checkbox' />";
 	}
+	function cwa_setting_rdquickp_fn(){
+		$options = get_option('cwa_options');
+		if($options['remove_dquickp']) { $checked = ' checked="checked" '; }
+		echo "<input ".$checked." id='remove_dquickp' name='cwa_options[remove_dquickp]' type='checkbox' />";
+	}
+	function cwa_setting_rdrecentd_fn(){
+		$options = get_option('cwa_options');
+		if($options['remove_drecentd']) { $checked = ' checked="checked" '; }
+		echo "<input ".$checked." id='remove_drecentd' name='cwa_options[remove_drecentd]' type='checkbox' />";
+	}
+	function cwa_setting_rdwpblog_fn(){
+		$options = get_option('cwa_options');
+		if($options['remove_dwpblog']) { $checked = ' checked="checked" '; }
+		echo "<input ".$checked." id='remove_dwpblog' name='cwa_options[remove_dwpblog]' type='checkbox' />";
+	}
+	function cwa_setting_rdowpnews_fn(){
+		$options = get_option('cwa_options');
+		if($options['remove_dowpnews']) { $checked = ' checked="checked" '; }
+		echo "<input ".$checked." id='remove_dowpnews' name='cwa_options[remove_dowpnews]' type='checkbox' />";
+	}	
 	function cwa_setting_rpoallposts_fn(){
 		$options = get_option('cwa_options');
 		if($options['remove_poall']) { $checked = ' checked="checked" '; }
@@ -378,7 +427,7 @@ Author URI: http://www.arteck.mx
 	function cwa_add_defaults_fn() {
 		$tmp = get_option('cwa_options');
   		if(($tmp['chkbox1']=='on')||(!is_array($tmp))) {
-			$arr = array("link_login" => "http://wordpress.org", "upload_image" => admin_url() . "images/wordpress-logo.png","wp_footer" => "Thank you for creating with <a href=\"http://wordpress.org\">WordPress</a>.", "remove_adminbarback" => "", "remove_adminbarfront" => "", "remove_posts" => "", "remove_media" => "", "remove_pages" => "", "remove_comments" => "", "remove_appearance" => "", "remove_plugins" => "", "remove_users" => "", "remove_tools" => "", "remove_settings" => "", "remove_poall" => "", "remove_poaddnew" => "", "remove_pocategories" => "", "remove_potags" => "", "remove_mlibrary" => "", "remove_maddnew" => "", "remove_pgall" => "", "remove_pgaddnew" => "", "remove_apthemes" => "", "remove_apwidgets" => "", "remove_apmenus" => "", "remove_apbackground" => "", "remove_apeditor" => "", "remove_plinstalled" => "", "remove_pladdnew" => "", "remove_pleditor" => "", "remove_usall" => "", "remove_usaddnew" => "", "remove_usyourp" => "", "remove_toavaible" => "", "remove_toimport" => "", "remove_toexport" => "", "remove_stgeneral" => "", "remove_stwriting" => "", "remove_streading" => "", "remove_stdiscussion" => "", "remove_stmedia" => "", "remove_stpermalinks" => "", "dashboard_section" => "", "remove_dtoday" => "", "remove_dlcomments" => "", "remove_dilinks" => "", "remove_dplugins" => "", "chkbox2" => "on");
+			$arr = array("link_login" => "http://wordpress.org", "upload_image" => admin_url() . "images/wordpress-logo.png","wp_footer" => "Thank you for creating with <a href=\"http://wordpress.org\">WordPress</a>.", /*"remove_adminbarback" => "",*/ "remove_adminbarfront" => "", "change_plugin_location" => "", "remove_posts" => "", "remove_media" => "", "remove_pages" => "", "remove_comments" => "", "remove_appearance" => "", "remove_plugins" => "", "remove_users" => "", "remove_tools" => "", "remove_settings" => "", "remove_poall" => "", "remove_poaddnew" => "", "remove_pocategories" => "", "remove_potags" => "", "remove_mlibrary" => "", "remove_maddnew" => "", "remove_pgall" => "", "remove_pgaddnew" => "", "remove_apthemes" => "", "remove_apwidgets" => "", "remove_apmenus" => "", "remove_apbackground" => "", "remove_apeditor" => "", "remove_plinstalled" => "", "remove_pladdnew" => "", "remove_pleditor" => "", "remove_usall" => "", "remove_usaddnew" => "", "remove_usyourp" => "", "remove_toavaible" => "", "remove_toimport" => "", "remove_toexport" => "", "remove_stgeneral" => "", "remove_stwriting" => "", "remove_streading" => "", "remove_stdiscussion" => "", "remove_stmedia" => "", "remove_stpermalinks" => "", "dashboard_section" => "", "remove_dtoday" => "", "remove_dlcomments" => "", "remove_dilinks" => "", "remove_dplugins" => "", "chkbox2" => "on");
 			update_option('cwa_options', $arr);
 		}
 	}
@@ -421,18 +470,14 @@ Author URI: http://www.arteck.mx
 		echo $remove_adminbar_margin;  
 	}  
 	//remove admin bar 
+	add_action('init','cwa_removeAdminBar');
     function cwa_removeAdminBar(){
     	$tmp = get_option('cwa_options');
-    	if ($tmp['remove_adminbarback']=='on'){
-			echo '<style type="text/css"> #wpadminbar { display:none; }</style>';
-			add_action( 'admin_head', 'cwa_remove_adminbar_margin' );
-		}
 		if ($tmp['remove_adminbarfront']=='on'){
 			show_admin_bar(false);
 			add_action( 'wp_head', 'cwa_remove_adminbar_margin' ); 
 		}
   	}  
-	add_action('init','cwa_removeAdminBar');
 	
 	add_action( "admin_menu", "cwa_remove_menu_pages" );
 	function cwa_remove_menu_pages(){
@@ -528,21 +573,33 @@ Author URI: http://www.arteck.mx
 	function cwa_remove_widgets_dashboard(){
 		$tmp = get_option('cwa_options');
 		if ($tmp['remove_dtoday']=='on')
-			unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+			remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
 		if ($tmp['remove_dlcomments']=='on')	
-			unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+			remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 		if ($tmp['remove_dilinks']=='on')
-			unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+			remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 		if ($tmp['remove_dplugins']=='on')
-			unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+			remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+		
+		if ($tmp['remove_dquickp']=='on')
+			remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+		if ($tmp['remove_drecentd']=='on')
+			remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
+		if ($tmp['remove_dwpblog']=='on')
+			remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+		if ($tmp['remove_dowpnews']=='on')
+			remove_meta_box( 'dashboard_secondary', 'dashboard', 'side' );
 	}
 	
 	
 	function cwa_settings_page() { ?>
 		<div class="wrap">
-			<h2>Customize wp-admin</h2>
+			<h2>Customize WP-Admin</h2>
 
 			<form action="options.php" method="post">
+				<p class="submit">
+					<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+				</p>
 				<?php settings_fields('cwa_options'); ?>
 				<?php do_settings_sections(__FILE__); ?>
 				<p class="submit">

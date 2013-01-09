@@ -4,7 +4,7 @@ Donate link: http://www.arteck.mx/
 Tags: CSS, WordPress Admin, Customize, remove sidebar, remove menu, remove submenu, change wp-login image, change wp-login link, change wp-admin footer
 Requires at least: 3.2.0
 Tested up to: 3.5
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 
 Customize WP-admin lets you easily remove any menu or submenu from the admin sidebar, change the footer at wp-admin, and change the image and link of Wordpress on wp-login.
@@ -34,9 +34,16 @@ A new menu item will appear on the left-hand side called 'CWA Settings'.  Click 
 == Changelog ==
 
 = TODO =
-* Make Spanish Localization
-* Add more custom options
-* Make an option to show plugin on sidebar or inside Tools
+* remove admin bar in wp-admin
+
+= 0.2 =
+* Fixed Bugs
+* Added option to show plugin on sidebar or inside Settings
+* Added Full Spanish Localization
+* Fixed Remove Dashboard Widgets not removing
+* Temparily removed the option to remove wp admin bar in wp-admin
+* Added ability to remove side widgets (dashboard)
+
 
 = 0.1 =
 * First Public Release
