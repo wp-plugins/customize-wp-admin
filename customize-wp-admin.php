@@ -22,9 +22,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
 */
-	register_activation_hook(__FILE__, 'add_defaults_fn');
+	register_activation_hook(__FILE__, 'cwa_add_defaults_fn');
 	//add_action('admin_init', 'cwa_create_menu' );
 	add_action('admin_menu', 'cwa_create_menu');
 	load_plugin_textdomain('customize-wp-admin', false, dirname(plugin_basename(__FILE__)) . '/lang/');
