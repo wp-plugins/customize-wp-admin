@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Customize WP-admin\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/\n"
+"POT-Creation-Date: 2013-01-09 05:16-0600\n"
+"PO-Revision-Date: 2013-01-09 05:16-0600\n"
+"Last-Translator: Adrian <adrian.rangel@arteck.mx>\n"
+"Language-Team: Arteck\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:52 (trunk)/customize-wp-admin.php:58
+msgid "CWA Settings"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:66
+msgid ""
+"Make sure the Remove Settings option is not enabled, before moving CWA "
+"Settings to Settings sub-menu."
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:75
+msgid "Main Settings"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:76
+msgid "Link Login Page"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:77
+msgid "Image Login Page"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:78
+msgid "Footer Of Your WP Dashboard"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:80
+msgid "Remove Admin-Bar from frontend"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:81
+msgid "Move CWA Settings from sidebar to Settings"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:83
+msgid "Wordpress Sidebar"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:84
+msgid "Remove Dashboard"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:85
+msgid "Remove Posts"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:86
+msgid "<span style=\"margin-left: 15px\">> Remove All Posts</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:87 (trunk)/customize-wp-admin.php:92
+#: (trunk)/customize-wp-admin.php:95 (trunk)/customize-wp-admin.php:105
+#: (trunk)/customize-wp-admin.php:109
+msgid "<span style=\"margin-left: 15px\">> Remove Add New</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:88
+msgid "<span style=\"margin-left: 15px\">> Remove Categories</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:89
+msgid "<span style=\"margin-left: 15px\">> Remove Tags</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:90
+msgid "Remove Media"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:91
+msgid "<span style=\"margin-left: 15px\">> Remove Library</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:93
+msgid "Remove Pages"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:94
+msgid "<span style=\"margin-left: 15px\">> Remove All Pages</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:96
+msgid "Remove Comments"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:97
+msgid "Remove Appearance"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:98
+msgid "<span style=\"margin-left: 15px\">> Remove Themes</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:99
+msgid "<span style=\"margin-left: 15px\">> Remove Widgets</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:100
+msgid "<span style=\"margin-left: 15px\">> Remove Menus</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:101
+msgid "<span style=\"margin-left: 15px\">> Remove Background</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:102 (trunk)/customize-wp-admin.php:106
+msgid "<span style=\"margin-left: 15px\">> Remove Editor</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:103 (trunk)/customize-wp-admin.php:127
+msgid "Remove Plugins"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:104
+msgid "<span style=\"margin-left: 15px\">> Remove Installed Plugins</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:107
+msgid "Remove Users"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:108
+msgid "<span style=\"margin-left: 15px\">> Remove All Users</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:110
+msgid "<span style=\"margin-left: 15px\">> Remove Your Profile</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:111
+msgid "Remove Tools"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:112
+msgid "<span style=\"margin-left: 15px\">> Remove Available Tools</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:113
+msgid "<span style=\"margin-left: 15px\">> Remove Import</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:114
+msgid "<span style=\"margin-left: 15px\">> Remove Export</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:115
+msgid "Remove Settings"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:116
+msgid "<span style=\"margin-left: 15px\">> Remove General</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:117
+msgid "<span style=\"margin-left: 15px\">> Remove Writing</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:118
+msgid "<span style=\"margin-left: 15px\">> Remove Reading</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:119
+msgid "<span style=\"margin-left: 15px\">> Remove Discussion</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:120
+msgid "<span style=\"margin-left: 15px\">> Remove Media</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:121
+msgid "<span style=\"margin-left: 15px\">> Remove Permalinks</span>"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:123
+msgid "Wordpress Dashboard Widgets"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:124
+msgid "Remove Right Now"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:125
+msgid "Remove Recent Comments"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:126
+msgid "Remove Incoming Links"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:128
+msgid "Remove QuickPress"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:129
+msgid "Remove Recent Drafts"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:130
+msgid "Remove Wordpress Blog"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:131
+msgid "Remove Other Wordpress News"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:133
+msgid "Restore to defaults"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:134
+msgid "Restore Defaults Upon Reactivation?"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:138
+msgid "Change wp-login image,link, and wp-admin footer."
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:148
+msgid "Upload Image"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:173
+msgid "Select the options you would like to remove from the wp-admin sidebar"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:230
+msgid "Select the widgets you would like to remove from the WP Dashboard"
+msgstr ""
+
+#: /Users/Adrian/Dropbox/Arteck/Git/customize-wp-admin/customize-wp-admin
+#: (trunk)/customize-wp-admin.php:417
+msgid "Check the mark, disable and enable plugin to restore values to default"
+msgstr ""
