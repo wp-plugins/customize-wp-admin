@@ -4,7 +4,7 @@ Plugin Name: Customize WP-admin
 Plugin URI: http://www.arteck.mx/project/customize-wp-admin/
 Description: Customize WP-admin lets you easily remove any menu or submenu from the admin sidebar, change the footer at wp-admin, and change the image and link of Wordpress on wp-login.
 Author: Arteck
-Version: 0.2
+Version: 0.2.1
 Author URI: http://www.arteck.mx
 
 Copyright 2012  Arteck  (email : adrian.rangel@arteck.mx)
