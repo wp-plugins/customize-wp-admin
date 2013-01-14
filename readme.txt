@@ -35,7 +35,7 @@ A new menu item will appear on the left-hand side called 'CWA Settings'.  Click 
 = TODO =
 * remove admin bar in wp-admin
 
-= 0.2.1=
+= 0.2.1 =
 * Fixed The plugin generated xxx characters of unexpected output during activation.
 
 = 0.2 =
