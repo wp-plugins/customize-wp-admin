@@ -3,7 +3,7 @@ Contributors: acrogenesis
 Donate link: http://www.arteck.mx/
 Tags: CSS, WordPress Admin, Customize, remove sidebar, remove menu, remove submenu, change wp-login image, change wp-login link, change wp-admin footer
 Requires at least: 3.2.0
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: 0.2.1
 License: GPLv2 or later
 
